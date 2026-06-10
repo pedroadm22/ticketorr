@@ -139,5 +139,3 @@ Interface direta ao ponto. O foco absoluto está nos quatro módulos (Status, Pr
 Setor de Software de Atendimento e Help Desk (SaaS/TI).
 
 ---
-
-*Salve este arquivo em `docs/CONCEPCAO.md` no seu repositório GitHub.*
