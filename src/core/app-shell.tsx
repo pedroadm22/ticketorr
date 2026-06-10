@@ -23,7 +23,7 @@ export function AppShell({ children }: AppShellProps) {
 
       <div className="flex flex-1 w-full overflow-hidden">
         
-        <Sidebar isOpen={isSidebarOpen} />
+        <Sidebar/>
 
         <div className="flex flex-col flex-1 bg-zinc-950 overflow-y-auto">
           <main className="flex-1 p-6 md:p-8 max-w-7xl w-full mx-auto">

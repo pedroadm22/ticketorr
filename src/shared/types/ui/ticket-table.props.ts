@@ -1,6 +1,9 @@
 import { Ticket } from "../domain/ticket";
 
+export interface TicketTableProps {
+  tickets: Ticket[];
+}
+
 export interface TicketRowProps {
   ticket: Ticket;
-  onManageClick: (ticketId: string) => void; // Ação para abrir a gerência do chamado
 }

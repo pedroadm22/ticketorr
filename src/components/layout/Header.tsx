@@ -1,6 +1,7 @@
 "use client";
+import { HiOutlineTicket } from "react-icons/hi";
 
-import { Menu, X, Boxes, User } from "lucide-react";
+import { Menu, X, User } from "lucide-react";
 
 interface HeaderProps {
   isSidebarOpen: boolean;
@@ -21,8 +22,8 @@ export function Header({ isSidebarOpen, onToggleSidebar, userName }: HeaderProps
         </button>
         
         <div className="flex items-center gap-2 font-semibold text-lg tracking-wide text-blue-500">
-          <Boxes className="h-6 w-6" />
-          <span>Storagium</span>
+          <HiOutlineTicket className="h-6 w-6 rotate-135" />
+          <span>Ticketorr</span>
         </div>
       </div>
 
