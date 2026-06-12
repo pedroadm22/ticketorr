@@ -1,25 +1,48 @@
-import { Ticket } from "@/shared/types/domain/ticket";
-import { PriorityBadge } from "@/components/features/badges/PriorityBadge";
-import { StatusBadge } from "@/components/features/badges/StatusBadge";
+import { TicketFilaItemDto } from "@/modules/tickets/dto/ListaFilaTicketsDto";
+import { StatusBadge } from "./StatusBadge";
 import Link from "next/link";
+// Se criar o PriorityBadge, importe-o aqui
 
-export function TicketRow({ ticket }: { ticket: Ticket }) {
+interface TicketRowProps {
+  item: TicketFilaItemDto;
+}
+
+export function TicketRow({ item }: TicketRowProps) {
   return (
-    <tr className="hover:bg-zinc-900/30">
-      <td className="p-4">
-        <div className="font-medium text-zinc-200">{ticket.cliente?.nome}</div>
-        <div className="text-xs text-zinc-500">{ticket.titulo}</div>
+    <tr className="hover:bg-zinc-800/10 transition-colors group">
+      {/* Protocolo */}
+      <td className="py-3.5 px-4 font-mono text-xs font-bold text-zinc-400">
+        <span className="bg-zinc-900 border border-zinc-800 px-1.5 py-0.5 rounded group-hover:border-zinc-700 transition-colors">
+          {item.protocolo}
+        </span>
       </td>
-      <td className="p-4 font-mono text-zinc-500">{ticket.protocolo}</td>
-      <td className="p-4">
-        {/* REAPROVEITANDO os mesmos badges globais, mas dentro de uma célula da tabela */}
-        <PriorityBadge prioridadeId={ticket.prioridadeId} nome={ticket.prioridade?.nome} />
+
+      {/* Assunto e Cliente */}
+      <td className="py-3.5 px-4">
+        <div className="font-medium text-zinc-200 truncate group-hover:text-zinc-100 transition-colors">
+          {item.titulo}
+        </div>
+        <div className="text-xs text-zinc-500 truncate mt-0.5">
+          {item.clienteNome}
+        </div>
       </td>
-      <td className="p-4">
-        <StatusBadge statusId={ticket.statusId} nome={ticket.status?.nome} />
+
+      {/* Status */}
+      <td className="py-3.5 px-4">
+        <StatusBadge statusId={item.statusId} />
       </td>
-      <td className="p-4 text-right">
-        <Link href={`/chamados/${ticket.id}`} className="text-blue-500 text-xs font-semibold">
+
+      {/* Data */}
+      <td className="py-3.5 px-4 text-xs text-zinc-400">
+        {item.dataCriacao}
+      </td>
+
+      {/* Ações */}
+      <td className="py-3.5 px-4 text-right">
+        <Link 
+          href={`/tickets/${item.id}`}
+          className="text-xs font-medium text-blue-400 hover:text-blue-300 transition-colors bg-blue-500/5 hover:bg-blue-500/10 border border-blue-500/10 px-2.5 py-1 rounded-md"
+        >
           Gerenciar
         </Link>
       </td>
