@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { PriorityBadge } from "../badges/PriorityBadge";
-import { StatusBadge } from "../badges/StatusBadge";
+import { PriorityBadge } from "../chamados/PriorityBadge";
+import { StatusBadge } from "../chamados/StatusBadge";
 import { Ticket } from "@/shared/types/domain/ticket";
 
 interface UrgentTicketRowProps {
